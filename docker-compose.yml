@@ -7,4 +7,6 @@ services:
       - 30303:30303
     volumes:
       - ./geth.ipc:/privatenet/data/geth.ipc
-    command: [geth, "--networkid", "15", "--datadir", "/privatenet/data", "--mine", "miner.threads=1", "--rpc","--rpcaddr 0.0.0.0"]
+    entrypoint:
+      - "geth --networkid 15 --datadir /privatenet/data --mine miner.threads=1 --rpc --rpcaddr 0.0.0.0"
+
