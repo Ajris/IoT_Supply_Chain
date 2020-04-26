@@ -1,12 +1,33 @@
-version: '3.6'
+version: '3'
 services:
-  node:
-    build: .
+  node_first:
+    build:
+          context: .
+          args:
+                name: "node1"
+                rpcport: 8545
     ports:
       - 8545:8545
-      - 30303:30303
-    volumes:
-      - ./geth.ipc:/privatenet/data/geth.ipc
-    entrypoint:
-      - "geth --networkid 15 --datadir /privatenet/data --mine miner.threads=1 --rpc --rpcaddr 0.0.0.0"
+    networks:
+            - private_network
+  node_second:
+    build: 
+        context: .
+        args:
+                name: "node2"
+                rpcport: 8456
+    ports:
+      - 8546:8546
+    networks:
+      - private_network
+
+
+networks:
+        private_network:
+                external:
+                        name: private_network
+
+    
+
+
 
