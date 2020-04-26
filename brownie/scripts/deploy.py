@@ -1,5 +1,4 @@
-from brownie import Token, accounts
+from brownie import *
 
 def main():
-    acct = accounts.load('deployment_account')
-    Token.deploy("My Real Token", "RLT", 18, 1e28, {'from': acct})
+    HelloWorld.deploy("My Real Token", "RLT", 18, 1e28, {'from': 'me'})
