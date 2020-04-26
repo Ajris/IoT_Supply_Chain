@@ -2,6 +2,6 @@ FROM ethereum/client-go
 WORKDIR /privatenet
 COPY genesis.json genesis.json
 COPY password.best password.best
-RUN mkdir data
-RUN geth --datadir /privatenet/data/ init genesis.json 
-RUN geth --datadir /privatenet/data/ --password password.best account new
+COPY start.sh start.sh
+RUN chmod +x /privatenet/start.sh
+ENTRYPOINT ["sh", "/privatenet/start.sh"]
