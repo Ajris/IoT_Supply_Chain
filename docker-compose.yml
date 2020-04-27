@@ -1,9 +1,19 @@
 version: '3.6'
 services:
-  node:
-    build: .
+  
+        #  node:
+        #    image: ethprivnet
+        #    build: .
+        #ports:
+        #- 8545:8545
+        #- 30303:30303
+        #   entrypoint: ["sh", "/privatenet/start.sh"] 
+  
+        #  bootnode:
+        #    image: ethprivnet
+        #    entrypoint: ["geth", "--networkid", "15", "--datadir", "/privatenet/data"]
+  ganachenode:
+    image: trufflesuite/ganache-cli
     ports:
       - 8545:8545
-      - 30303:30303
-    volumes:
-      - ./data/:/privatenet/data/
+  

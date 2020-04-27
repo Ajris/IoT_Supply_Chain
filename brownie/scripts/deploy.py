@@ -1,7 +1,7 @@
-from brownie import HelloWorld, accounts
+from brownie import Token, Good, Factory, accounts
 
 
 def main():
-    account = accounts.load('deployer')
-    HelloWorld.deploy({'from': account})
-
+    Token.deploy(1e18, {'from': accounts[0]})
+    deployedGood = Good.deploy("PC", {'from': accounts[0]})
+    print(deployedGood)
