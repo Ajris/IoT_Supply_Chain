@@ -14,6 +14,5 @@ def index():
 
     tx_hash = contract.functions.balanceOf('0xA06BC4aa79553F765b6a3548ee4f2d4a3C76715F').transact()
     receipt = w3.eth.waitForTransactionReceipt(tx_hash)
-#    return {'status': receipt['status']}
+    return receipt['status']
 
-    return dict(receipt)
