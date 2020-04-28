@@ -1,6 +1,6 @@
 pragma solidity ^0.6.0;
 
-contract Token {
+contract SPToken {
     address public owner;
     mapping (address => uint) public balances;
 
@@ -16,10 +16,6 @@ contract Token {
         balances[msg.sender] -= amount;
         balances[receiver] += amount;
         emit Sent(msg.sender, receiver, amount);
-    }
-
-    function balance() public returns (uint) {
-        return balances[msg.sender];
     }
 
     function balanceOf(address account) public returns (uint) {

@@ -1,7 +1,7 @@
-from brownie import Token, Good, Factory, accounts
+from brownie import SPToken, Good, Factory, accounts
 
 
 def main():
-    Token.deploy(1e18, {'from': accounts[0]})
+    SPToken.deploy(1e18, {'from': accounts[0]})
     deployedGood = Good.deploy("PC", {'from': accounts[0]})
-    print(deployedGood)
+    Factory.deploy(deployedGood, {'from': accounts[0]})
