@@ -11,7 +11,7 @@ contract Factory {
         uint id;
         uint amount;
         uint price;
-        address customer;
+        address payable customer;
         OrderStatus status;
     }
     
@@ -46,7 +46,10 @@ contract Factory {
     function cancel_order(uint id) public {
 	    require(orders[id].customer == msg.sender, "Only customer");
         require(orders[id].status != OrderStatus.REALIZED, "Status cannot be realized");
-	    orders[id].status = OrderStatus.CANCELLED;
+	if(orders[id].status == OrderStatus.PAYED) {
+		orders[id].customer.send(orders[id].amount*orders[id].price);
+	}
+	orders[id].status = OrderStatus.CANCELLED;
     }
 
     function pay_order(uint id) public payable {
