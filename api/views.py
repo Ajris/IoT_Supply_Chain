@@ -11,7 +11,7 @@ def index():
     with open('brownie/build/contracts/SPToken.json') as f:
         source = json.loads(f.read())
     abi = source['abi']
-    contract = w3.eth.contract(address=ADDRESS, abi=abi)
+    contract = w3.eth.contract(address=CONTRACT_ADDRESS, abi=abi)
 
     tx_hash = contract.functions.balanceOf(WALLET_ADDRESS).transact()
     receipt = w3.eth.waitForTransactionReceipt(tx_hash)
