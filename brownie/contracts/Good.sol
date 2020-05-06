@@ -5,7 +5,7 @@ contract Good {
     string public name;
 
     constructor(string memory _name) public {
-	name = _name;
+	    name = _name;
     }
 
     function mint(address owner, uint amount) public {
@@ -13,7 +13,7 @@ contract Good {
     }
 
     function good_transfer(address receiver, uint amount) public {
-        if (good_balances[msg.sender] < amount) return;
+        require(good_balances[msg.sender] >= amount, "Too small balance");
         good_balances[msg.sender] -= amount;
         good_balances[receiver] += amount;
     }
@@ -26,3 +26,4 @@ contract Good {
         return good_balances[account];
     }
 }
+
