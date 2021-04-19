@@ -62,7 +62,7 @@ toolz==0.10.0
 tqdm==4.45.0
 urllib3==1.25.9
 varint==1.0.2
-vyper==0.1.0b17
+vyper==0.2.11
 wcwidth==0.1.9
 web3==5.5.1
 websockets==8.1
