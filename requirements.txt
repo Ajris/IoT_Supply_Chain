@@ -39,7 +39,7 @@ pluggy==0.13.1
 prompt-toolkit==3.0.5
 protobuf==3.11.3
 psutil==5.7.0
-py==1.8.1
+py==1.10.0
 py-solc-ast==1.2.4
 py-solc-x==0.8.1
 pycryptodome==3.9.7
